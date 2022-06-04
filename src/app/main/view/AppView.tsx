@@ -1,12 +1,11 @@
-import React from "react";
 import { Provider } from "react-redux";
 import CounterView from "../../counter/view/CounterView";
 
-import { appStoreImplementation } from "../data/appStoreImplementation";
+import { appStoreImpl } from "../data/appStoreImpl";
 
 function AppView() {
   return (
-    <Provider store={appStoreImplementation}>
+    <Provider store={appStoreImpl}>
       <CounterView />
     </Provider>
   );

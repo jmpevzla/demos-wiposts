@@ -5,7 +5,7 @@ import Button from "../../shared/ui/Button";
 import Spinner from "../../shared/ui/Spinner";
 
 import { useCounterViewModel } from "../controller/counterViewModel";
-import { useCounterStoreImplementation } from "../data/counterStoreImplementation";
+import { useCounterStoreImpl } from "../data/counterStoreImpl";
 
 const Count = styled.span`
   font-size: 1.375rem;
@@ -14,7 +14,7 @@ const Count = styled.span`
 `;
 
 const CounterView = () => {
-  const store = useCounterStoreImplementation();
+  const store = useCounterStoreImpl();
   const {
     count,
     canDecrement,
