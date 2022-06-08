@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { CounterStore } from "../domain/counterStore";
 import type { Counter } from "../domain/counterEntity";
-import type { AppRootState } from "../../main/data/appStoreImpl";
+import type { AppRootState } from "@/main/data/appStoreImpl";
 
 export type CounterStoreState = Omit<CounterStore, "loadInitialCounter" | "setCounter" | "updateCounter">;
 

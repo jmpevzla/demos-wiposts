@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppSelector, useAppDispatch } from "../../main/data/hooks";
+import { useAppSelector, useAppDispatch } from "@/main/data/hooks";
 
 import type { CounterStore } from "../domain/counterStore";
 import type { Counter } from "../domain/counterEntity";

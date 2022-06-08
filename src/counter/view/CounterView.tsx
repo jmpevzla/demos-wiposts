@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import Button from "../../shared/ui/Button";
-import Spinner from "../../shared/ui/Spinner";
+import Button from "@/shared/ui/Button";
+import Spinner from "@/shared/ui/Spinner";
 
 import { useCounterViewModel } from "../controller/counterViewModel";
 import { useCounterStoreImpl } from "../data/counterStoreImpl";
