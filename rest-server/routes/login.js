@@ -48,8 +48,7 @@ module.exports = async (req, res) => {
 
     return res.json({
         token,
-        user,
-        message: 'Login successful!'
+        user
     })
 
   } catch(err) {

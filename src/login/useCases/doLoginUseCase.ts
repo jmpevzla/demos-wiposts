@@ -28,20 +28,19 @@ const doLoginUseCase = async (
     routerStore
   } = extras
   
-  const user = await store.doLogin(login)
+  const authData = await store.doLogin(login)
+
   const modal: Modal = {
     type: "success",
     message: 'Login Successful!'
   }
   modalStore.show(modal)
   
-  userStore.setUser({
-    email: 'demo@wipost.io'
-  })
+  userStore.setUser(authData!.user)
 
   userStore.setStorageUser({
-    token: 'alphabet',
-    id: 1
+    token: authData!.token,
+    id: authData!.user.id
   })
 
   const route: RouterEntity = {
@@ -49,8 +48,6 @@ const doLoginUseCase = async (
     name: 'home'
   }
   routerStore.goTo(route)
-
-  return user
 };
 
 export { doLoginUseCase };

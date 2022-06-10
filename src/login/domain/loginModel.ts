@@ -7,11 +7,4 @@ function create(): Login {
   }
 }
 
-// function setLogin(login: Login) {
-//   return {
-//     email: login.email,
-//     password: login.password
-//   }
-// }
-
-export { create, }; //setLogin };
+export { create, };

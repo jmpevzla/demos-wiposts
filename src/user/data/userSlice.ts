@@ -3,7 +3,7 @@ import type { UserStore } from "../domain/userStore";
 import type { AppRootState } from "@/main/data/appStoreImpl";
 import { User } from '../domain/userEntity';
 
-export type UserStoreState = Omit<UserStore, "setUser">
+export type UserStoreState = Omit<UserStore, "setUser" | "setStorageUser">
 
 const INITIAL_STATE: UserStoreState = {
   user: undefined

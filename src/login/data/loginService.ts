@@ -1,13 +1,12 @@
+import type { AxiosResponse } from "axios";
 import type { Login } from "../domain/loginEntity";
 
-function doLoginApi(login: Login): Promise<Object> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        email: 'demo@wipost.io'
-      })
-    }, 1000);
-  });
-}
+import type { TAuthResponse } from "@/shared/api/apiTypes";
+import { axiosAuth } from '@/shared/api/getAxios'
 
-export { doLoginApi };
+export async function doLoginApi(credentials: Login): Promise<TAuthResponse> {
+  const res = await axiosAuth.post<any, AxiosResponse<TAuthResponse>, Login>
+    (`/login`, credentials)
+  
+  return res.data
+}
