@@ -5,9 +5,9 @@ import { useLoginViewModel } from "../controller/loginViewModel";
 import { useLoginStoreImpl } from "../data/loginStoreImpl";
 import { Login } from "../domain/loginEntity";
 import { create } from "../domain/loginModel"
-import { useModalStoreImpl } from "@/app/modal/data/modalStoreImpl";
-import { useRouterStoreImpl } from "@/app/router/data/routerStoreImpl";
-import { useUserStoreImpl } from "@/user/data/userStoreImpl";
+import { useModalStoreImpl } from "@/shared/app/modal/data/modalStoreImpl";
+import { useRouterStoreImpl } from "@/shared/app/router/data/routerStoreImpl";
+import { useUserStoreImpl } from "@/app/user/data/userStoreImpl";
 
 const LoginView = () => {
   const modalStore = useModalStoreImpl()

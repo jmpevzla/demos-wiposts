@@ -1,4 +1,4 @@
-import { AuthData } from "@/app/auth/domain/authEntity"
+import { AuthData } from "@/extras/authEntity"
 
 export interface TResponse<T = any> {
   info: T | null

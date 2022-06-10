@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 
 import { appStoreImpl } from "../data/appStoreImpl";
-import HomeView from "@/home/view/HomeView";
-import LoginView from "@/login/view/LoginView";
+import HomeView from "@/app/home/view/HomeView";
+import LoginView from "@/app/login/view/LoginView";
 
 export default AppView;
 

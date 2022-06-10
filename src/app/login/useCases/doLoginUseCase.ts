@@ -1,12 +1,12 @@
 import type { Login } from "../domain/loginEntity";
 import type { LoginStore } from "../domain/loginStore";
 
-import { Modal } from "@/app/modal/domain/modalEntity";
-import { ModalStore } from "@/app/modal/domain/modalStore";
+import { Modal } from "@/shared/app/modal/domain/modalEntity";
+import { ModalStore } from "@/shared/app/modal/domain/modalStore";
 
-import { RouterStore } from "@/app/router/domain/routerStore";
-import { RouterEntity } from "@/app/router/domain/routerEntity";
-import { UserStore } from "@/user/domain/userStore";
+import { RouterStore } from "@/shared/app/router/domain/routerStore";
+import { RouterEntity } from "@/shared/app/router/domain/routerEntity";
+import { UserStore } from "@/app/user/domain/userStore";
 
 type DoLoginStore = Pick<
   LoginStore,

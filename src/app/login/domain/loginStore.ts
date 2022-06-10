@@ -1,4 +1,4 @@
-import { AuthData } from "@/app/auth/domain/authEntity";
+import { AuthData } from "@/extras/authEntity";
 import type { Login } from "./loginEntity";
 
 interface LoginStore {

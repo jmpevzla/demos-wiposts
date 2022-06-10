@@ -5,9 +5,9 @@ import { Login } from "../domain/loginEntity";
 
 import { doLoginUseCase } from "../useCases/doLoginUseCase";
 
-import { ModalStore } from "@/app/modal/domain/modalStore";
-import { RouterStore } from "@/app/router/domain/routerStore";
-import { UserStore } from "@/user/domain/userStore";
+import { ModalStore } from "@/shared/app/modal/domain/modalStore";
+import { RouterStore } from "@/shared/app/router/domain/routerStore";
+import { UserStore } from "@/app/user/domain/userStore";
 
 interface useLoginViewModelParams {
   loginStore: LoginStore,
