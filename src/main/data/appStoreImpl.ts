@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from "@/counter/data/counterSlice"; 
+import counterReducer from "@/counter/data/counterSlice"
+import loginReducer from "@/login/data/loginSlice"
+import userReducer from "@/user/data/userSlice"
 
 const appStoreImpl = configureStore({
   reducer: {
-    counter: counterReducer
+    counter: counterReducer,
+    login: loginReducer,
+    user: userReducer
   }
 })
 
