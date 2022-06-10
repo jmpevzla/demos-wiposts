@@ -1,16 +1,29 @@
 import { Provider } from "react-redux";
-import CounterView from "@/counter/view/CounterView";
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 import { appStoreImpl } from "../data/appStoreImpl";
+import HomeView from "@/home/view/HomeView";
 import LoginView from "@/login/view/LoginView";
+
+export default AppView;
 
 function AppView() {
   return (
     <Provider store={appStoreImpl}>
-      {/* <CounterView /> */}
-      <LoginView />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<HomeView />} />
+            <Route path="login" element={<LoginView />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </Provider>
   );
 }
 
-export default AppView;

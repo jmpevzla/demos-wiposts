@@ -1,5 +1,6 @@
 import React from "react";
 import { useAppSelector, useAppDispatch } from "@/main/data/hooks";
+import { NavigateOptions, useNavigate } from "react-router-dom";
 
 import type { RouterStore } from "../domain/routerStore";
 
@@ -12,10 +13,25 @@ const useRouterStoreImpl = (): RouterStore => {
   //   ModalStoreState
   // >(modalSelector);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const goTo = React.useCallback(
     (routerEntity: RouterEntity) => {
-      console.log('yendo a ', routerEntity)
+      let opts: NavigateOptions  = {}
+      switch(routerEntity.type) {
+        case 'push':
+          opts.replace = false
+          break
+        case 'replace':
+          opts.replace = true
+          break
+      }
+
+      switch(routerEntity.name) {
+        case 'home': 
+          navigate('/', opts)
+          break
+      }
     },
     [dispatch]
   )
