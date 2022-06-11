@@ -26,7 +26,8 @@ function useLoginViewModel(
     function (login: Login) {
 
       doLoginUseCase({
-        doLogin: loginStore.doLogin
+        doLogin: loginStore.doLogin,
+        setError: loginStore.setError
       }, login
       , params);
 
@@ -36,7 +37,7 @@ function useLoginViewModel(
 
   return {
     isLoading: loginStore.isLoading,
- 
+    error: loginStore.error,
     doLogin
   };
 }

@@ -9,25 +9,41 @@ import { actions, loginSelector } from "./loginSlice"
 import { doLoginApi } from "./loginService";
 
 const useLoginStoreImpl = (): LoginStore => {
-  const { isLoading } = useAppSelector<
+  const { isLoading, error } = useAppSelector<
     LoginStoreState
   >(loginSelector);
   const dispatch = useAppDispatch();
 
   const doLogin = React.useCallback(
     async (login: Login) => {
-      dispatch(actions.doLogin())
-      const response = await doLoginApi(login)
-      dispatch(actions.doLoginFinish())
-      return response.info
+      try {
+        dispatch(actions.setError(''))
+        dispatch(actions.doLogin())
+        const response = await doLoginApi(login) 
+        return response.info
+      } catch(error) {
+        throw error
+      } finally {
+        dispatch(actions.doLoginFinish())
+      }
     },
+    [dispatch]
+  )
+
+  const setError = React.useCallback(
+    (error: string) => {
+      dispatch(actions.setError(error))
+    }
+    , 
     [dispatch]
   )
 
   return {
     isLoading,
-    
-    doLogin
+    error,
+
+    doLogin,
+    setError
   };
 };
 

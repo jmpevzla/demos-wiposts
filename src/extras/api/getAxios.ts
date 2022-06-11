@@ -1,4 +1,5 @@
 import Axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import responseErrorInterceptor from './interceptors/respError'
 import responseOkInterceptor from './interceptors/respOk'
 
 Axios.defaults.baseURL = 'http://localhost:4000'
@@ -18,4 +19,4 @@ function addResponse(axiosInstance: AxiosInstance,
 }
 
 export const axiosAuth = Axios.create()
-addResponse(axiosAuth, responseOkInterceptor)
+addResponse(axiosAuth, responseOkInterceptor, responseErrorInterceptor)

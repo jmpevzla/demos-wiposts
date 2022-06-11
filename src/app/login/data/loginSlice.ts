@@ -2,10 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { LoginStore } from "../domain/loginStore";
 import type { AppRootState } from "@/main/data/appStoreImpl";
 
-export type LoginStoreState = Omit<LoginStore, "doLogin">
+export type LoginStoreState = Omit<LoginStore, "doLogin" | "setError">
 
 const INITIAL_STATE: LoginStoreState = {
-  isLoading: false
+  isLoading: false,
+  error: ''
 };
   
 export const loginSlice = createSlice({
@@ -17,6 +18,9 @@ export const loginSlice = createSlice({
     },
     doLoginFinish: (state) => {
       state.isLoading = false
+    },
+    setError: (state, action: PayloadAction<string>) => {
+      state.error = action.payload
     }
   }
 })

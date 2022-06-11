@@ -17,6 +17,7 @@ const LoginView = () => {
   const loginStore = useLoginStoreImpl()
   const {
     isLoading,
+    error,
     doLogin
   } = useLoginViewModel({
     loginStore,
@@ -30,34 +31,8 @@ const LoginView = () => {
     //validate,
     validateOnChange: false,
     enableReinitialize: true,
-    onSubmit: async (values) => {
-
-      doLogin(values)
-
-      // login.mutate(values, {
-      //   onSuccess: async (data) => {
-      //     await showSuccess(data.message)
-
-      //     userDispatch({
-      //       type: setUserAction,
-      //       payload: data.user,
-      //     });
-
-      //     setStUser(data.token, data.user.id);
-      //     setLocation("/");
-      //   },
-      //   onError: (error) => {
-      //     if (error.status === 401) {
-      //       error.message = "Credentials invalid!, try again";
-      //     }
-      //   },
-      // });
-    },
+    onSubmit: doLogin,
   });
-
-  // const handleChange = (ev: React.ChangeEvent<any>) => {
-  //   formFormik.handleChange(ev)
-  // }
 
   //if (show) {
     return (
@@ -102,13 +77,13 @@ const LoginView = () => {
               </div>
 
               <div className="my-3">
-                {/* <div className="min-h-8">
-                  {login.error && (
+                <div className="min-h-8">
+                  {error && (
                     <p className="text-error text-center">
-                      {login.error.message}
+                      {error}
                     </p>
                   )}
-                </div> */}
+                </div>
 
                 {isLoading && <p>Loading...</p>}
                 <button type="submit" className="w-full btn btn-primary">
