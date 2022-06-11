@@ -1,3 +1,5 @@
+import Swal from "sweetalert2"
+
 const TOKEN = 'postex-token'
 const USERID = 'postex-user-id'
 
@@ -8,6 +10,6 @@ export function setStUser(token: string, userId: number) {
   } catch(err) {
     const error = err as Error
     console.error(error)
-    //Swal.fire('Error in localStorage', error.message, 'error')
+    Swal.fire('Error in localStorage', error.message, 'error')
   }
 }
