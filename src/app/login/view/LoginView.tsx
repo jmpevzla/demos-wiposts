@@ -5,6 +5,7 @@ import { useLoginViewModel } from "../controller/loginViewModel";
 import { useLoginStoreImpl } from "../data/loginStoreImpl";
 import { Login } from "../domain/loginEntity";
 import { create } from "../domain/loginModel"
+import { LoginSchema } from "../domain/loginValidation"
 import { useModalStoreImpl } from "@/shared/app/modal/data/modalStoreImpl";
 import { useRouterStoreImpl } from "@/shared/app/router/data/routerStoreImpl";
 import { useUserStoreImpl } from "@/app/user/data/userStoreImpl";
@@ -28,7 +29,7 @@ const LoginView = () => {
 
   const formFormik = useFormik<Login>({
     initialValues: create(),
-    //validate,
+    validationSchema: LoginSchema,
     validateOnChange: false,
     enableReinitialize: true,
     onSubmit: doLogin,

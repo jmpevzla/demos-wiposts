@@ -7,4 +7,15 @@ function create(): Login {
   }
 }
 
-export { create, };
+function validate(login: Login) {
+  const errors: Record<string, string> = {};
+  if (!login.email) {
+    errors.email = "Required";
+  }
+  if (!login.password) {
+    errors.password = "Required";
+  }
+  return errors;
+}
+
+export { create, validate, };
